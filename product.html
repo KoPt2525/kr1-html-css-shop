@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Товар 1: описание, характеристики и цена. Учебный интернет-магазин.">
+    <title>Товар 1 — Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="site-header__inner">
+        <a class="site-header__logo" href="index.html">ShopProject</a>
+
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="order.html">Оформить заявку</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="contacts.html">Контакты</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="site-main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+        <span class="breadcrumbs__current" aria-current="page">Товар 1</span>
+    </nav>
+
+    <article class="product">
+        <div class="product__media">
+            <span class="badge badge--hit product__badge">Хит</span>
+            <img class="product__image" src="images/product-1.svg" alt="Товар 1 — внешний вид" width="600" height="400">
+        </div>
+
+        <div class="product__info">
+            <p class="product__category">Категория: Популярные</p>
+            <h1 class="product__title">Товар 1</h1>
+            <p class="product__description">
+                Подробное описание учебного товара. Здесь рассказывается,
+                для чего нужен товар, чем он отличается от аналогов
+                и кому подойдёт.
+            </p>
+            <p class="product__price">1000 руб.</p>
+            <p class="product__stock">В наличии</p>
+
+            <div class="product__actions">
+                <a class="button button--primary" href="order.html">Оформить заявку</a>
+                <a class="button button--secondary" href="catalog.html">Вернуться в каталог</a>
+            </div>
+        </div>
+    </article>
+
+    <section class="section">
+        <table class="product-table">
+            <caption class="product-table__caption">Характеристики товара</caption>
+            <thead>
+                <tr class="product-table__row">
+                    <th class="product-table__head-cell" scope="col">Параметр</th>
+                    <th class="product-table__head-cell" scope="col">Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="product-table__row">
+                    <th class="product-table__cell product-table__cell--name" scope="row">Категория</th>
+                    <td class="product-table__cell">Популярные</td>
+                </tr>
+                <tr class="product-table__row">
+                    <th class="product-table__cell product-table__cell--name" scope="row">Цена</th>
+                    <td class="product-table__cell">1000 руб.</td>
+                </tr>
+                <tr class="product-table__row">
+                    <th class="product-table__cell product-table__cell--name" scope="row">Наличие</th>
+                    <td class="product-table__cell">В наличии</td>
+                </tr>
+                <tr class="product-table__row">
+                    <th class="product-table__cell product-table__cell--name" scope="row">Гарантия</th>
+                    <td class="product-table__cell">12 месяцев</td>
+                </tr>
+                <tr class="product-table__row">
+                    <th class="product-table__cell product-table__cell--name" scope="row">Доставка</th>
+                    <td class="product-table__cell">1–3 рабочих дня</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <aside class="aside-info">
+        <h2 class="aside-info__title">Доставка и оплата</h2>
+        <p class="aside-info__text">
+            Доставка по городу — 1–3 рабочих дня. Оплата при получении
+            картой или наличными. Подробности уточнит менеджер после заявки.
+        </p>
+    </aside>
+</main>
+
+<footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+</footer>
+
+<a class="to-top" href="#" aria-label="Вернуться наверх страницы">↑ Наверх</a>
+</body>
+</html>
