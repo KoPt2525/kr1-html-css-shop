@@ -181,24 +181,35 @@ a:focus-visible {
 }
 
 /*
-  Список навигации без маркеров и стандартных отступов.
+  Горизонтальное меню на Flexbox.
+  flex-wrap переносит пункты, если они не помещаются в строку.
 */
 .site-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
     padding: 0;
     margin: var(--space-md) 0 0;
     list-style: none;
 }
 
-.site-nav__list li {
-    margin-bottom: var(--space-sm);
-}
-
+/*
+  inline-block позволяет задать ссылке внутренние отступы
+  и увеличить кликабельную область.
+*/
 .site-nav__list a {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-primary);
     text-decoration: none;
+    border-radius: var(--radius-sm);
 }
 
 .site-nav__list a:hover {
-    text-decoration: underline;
+    color: var(--color-white);
+    background-color: var(--color-primary);
 }
 
 /*
@@ -245,10 +256,23 @@ a:focus-visible {
 }
 
 /*
-  Карточка товара. При наведении подсвечивается рамка.
+  Сетка карточек товаров: три равные колонки.
+*/
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+/*
+  Карточка товара — flex-колонка.
+  При наведении подсвечивается рамка.
 */
 .product-card {
-    margin-bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: 0;
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -259,8 +283,83 @@ a:focus-visible {
     border-color: var(--color-primary);
 }
 
-.product-card h3 {
+/*
+  Отступы между элементами карточки задаёт gap,
+  поэтому стандартные margin у заголовка и абзацев убираем.
+*/
+.product-card h3,
+.product-card p {
+    margin: 0;
+}
+
+/*
+  margin-top: auto прижимает кнопку к низу карточки,
+  align-self не даёт ей растянуться на всю ширину.
+*/
+.product-card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/*
+  Страница каталога: фильтры слева, товары справа.
+*/
+.catalog-layout {
+    max-width: var(--container-width);
+    margin: 0 auto var(--space-xl);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-areas: "filters products";
+    gap: var(--space-lg);
+}
+
+.catalog-filters {
+    grid-area: filters;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.catalog-filters h2,
+.catalog-products h2 {
     margin-top: 0;
+}
+
+.catalog-products {
+    grid-area: products;
+}
+
+/*
+  Форма фильтров: группы полей друг под другом с отступом gap.
+*/
+.filters-form {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.filters-form fieldset {
+    margin: 0;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.filters-form legend {
+    font-weight: 700;
+}
+
+.filters-form label {
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.filters-form input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font: inherit;
 }
 
 /*
