@@ -58,22 +58,27 @@
 
                     <label class="filters-form__option">
                         <input type="checkbox" name="category" value="all" checked>
-                        Все товары
+                        Все фото
                     </label>
 
                     <label class="filters-form__option">
-                        <input type="checkbox" name="category" value="popular">
-                        Популярные
+                        <input type="checkbox" name="category" value="pets">
+                        Котята и щенки
                     </label>
 
                     <label class="filters-form__option">
-                        <input type="checkbox" name="category" value="new">
-                        Новинки
+                        <input type="checkbox" name="category" value="food">
+                        Еда
                     </label>
 
                     <label class="filters-form__option">
-                        <input type="checkbox" name="category" value="sale">
-                        Со скидкой
+                        <input type="checkbox" name="category" value="cars">
+                        Машинки
+                    </label>
+
+                    <label class="filters-form__option">
+                        <input type="checkbox" name="category" value="places">
+                        Достопримечательности
                     </label>
                 </fieldset>
 
@@ -84,7 +89,7 @@
                     <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
 
                     <label class="filters-form__label" for="price-to">До</label>
-                    <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+                    <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="2000">
                 </fieldset>
 
                 <button class="button button--primary" type="submit">Применить</button>
@@ -95,82 +100,165 @@
         <section class="catalog-products">
             <h2 class="catalog-products__title">Список товаров</h2>
 
-            <div class="products-grid">
-                <article class="product-card">
-                    <span class="badge badge--hit product-card__badge">Хит</span>
-                    <img class="product-card__image" src="images/product-1.svg" alt="Товар 1" width="600" height="400">
-                    <p class="product-card__category">Популярные</p>
-                    <h3 class="product-card__title">Товар 1</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 1000 руб.</p>
-                    <div class="product-card__actions">
-                        <a class="button button--primary" href="product.html">Подробнее</a>
-                        <a class="button button--secondary" href="order.html">В заявку</a>
-                    </div>
-                </article>
+            <section class="catalog-group" id="pets" aria-labelledby="pets-title">
+                <h3 class="catalog-group__title" id="pets-title">Котята и щенки</h3>
 
-                <article class="product-card product-card--featured">
-                    <span class="badge badge--new product-card__badge">Новинка</span>
-                    <img class="product-card__image" src="images/product-2.svg" alt="Товар 2" width="600" height="400">
-                    <p class="product-card__category">Новинки</p>
-                    <h3 class="product-card__title">Товар 2</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 1500 руб.</p>
-                    <div class="product-card__actions">
-                        <a class="button button--primary" href="product.html">Подробнее</a>
-                        <a class="button button--secondary" href="order.html">В заявку</a>
-                    </div>
-                </article>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <span class="badge badge--hit product-card__badge">Хит</span>
+                        <img class="product-card__image" src="images/kittens-trio.jpg" alt="Трое котят играют в вольере" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Трое котят</h4>
+                        <p class="product-card__description">Пушистая компания в зоомагазине Токио.</p>
+                        <p class="product-card__price">Цена: 900 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
 
-                <article class="product-card product-card--discount">
-                    <span class="badge badge--sale product-card__badge">−10%</span>
-                    <img class="product-card__image" src="images/product-3.svg" alt="Товар 3" width="600" height="400">
-                    <p class="product-card__category">Со скидкой</p>
-                    <h3 class="product-card__title">Товар 3</h3>
-                    <p class="product-card__description">Краткое описание учебного товара. Скидка 10%.</p>
-                    <p class="product-card__price">Цена: 1800 руб.</p>
-                    <div class="product-card__actions">
-                        <a class="button button--primary" href="product.html">Подробнее</a>
-                        <a class="button button--secondary" href="order.html">В заявку</a>
-                    </div>
-                </article>
+                    <article class="product-card">
+                        <img class="product-card__image" src="images/cat-sphynx.jpg" alt="Сфинкс в полосатом свитере" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Сфинкс в свитере</h4>
+                        <p class="product-card__description">Строгий взгляд и тёплый свитер.</p>
+                        <p class="product-card__price">Цена: 700 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
 
-                <article class="product-card">
-                    <img class="product-card__image" src="images/product-4.svg" alt="Товар 4" width="600" height="400">
-                    <p class="product-card__category">Популярные</p>
-                    <h3 class="product-card__title">Товар 4</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 2500 руб.</p>
-                    <div class="product-card__actions">
-                        <a class="button button--primary" href="product.html">Подробнее</a>
-                        <a class="button button--secondary" href="order.html">В заявку</a>
-                    </div>
-                </article>
+                    <article class="product-card">
+                        <span class="badge badge--new product-card__badge">Новинка</span>
+                        <img class="product-card__image" src="images/cat-sphynx-smile.jpg" alt="Сфинкс зажмурился от удовольствия" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Довольный сфинкс</h4>
+                        <p class="product-card__description">Тот же сфинкс, но уже в настроении.</p>
+                        <p class="product-card__price">Цена: 750 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
 
-                <article class="product-card">
-                    <span class="badge badge--new product-card__badge">Новинка</span>
-                    <img class="product-card__image" src="images/product-5.svg" alt="Товар 5" width="600" height="400">
-                    <p class="product-card__category">Новинки</p>
-                    <h3 class="product-card__title">Товар 5</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 3200 руб.</p>
-                    <div class="product-card__actions">
-                        <a class="button button--primary" href="product.html">Подробнее</a>
-                        <a class="button button--secondary" href="order.html">В заявку</a>
-                    </div>
-                </article>
+                    <article class="product-card">
+                        <img class="product-card__image" src="images/kitten-ragdoll.jpg" alt="Котёнок рэгдолл с голубыми глазами" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Котёнок рэгдолл</h4>
+                        <p class="product-card__description">Голубые глаза и пушистые лапки.</p>
+                        <p class="product-card__price">Цена: 650 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
 
-                <article class="product-card product-card--unavailable">
-                    <img class="product-card__image" src="images/product-6.svg" alt="Товар 6" width="600" height="400">
-                    <p class="product-card__category">Популярные</p>
-                    <h3 class="product-card__title">Товар 6</h3>
-                    <p class="product-card__description">Временно нет в наличии.</p>
-                    <p class="product-card__price">Цена: 4000 руб.</p>
-                    <div class="product-card__actions">
-                        <button class="button button--primary" type="button" disabled>Нет в наличии</button>
-                    </div>
-                </article>
-            </div>
+                    <article class="product-card product-card--unavailable">
+                        <img class="product-card__image" src="images/puppy-poodle.jpg" alt="Рыжий щенок той-пуделя" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Щенок пуделя</h4>
+                        <p class="product-card__description">Рыжий кудрявый той-пудель.</p>
+                        <p class="product-card__price">Цена: 600 руб.</p>
+                        <div class="product-card__actions">
+                            <button class="button button--primary" type="button" disabled>Продано</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-group" id="food" aria-labelledby="food-title">
+                <h3 class="catalog-group__title" id="food-title">Еда</h3>
+
+                <div class="products-grid">
+                    <article class="product-card product-card--featured">
+                        <span class="badge badge--new product-card__badge">Новинка</span>
+                        <img class="product-card__image" src="images/ramen-tonkotsu.jpg" alt="Миска рамена тонкоцу" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Рамен тонкоцу</h4>
+                        <p class="product-card__description">Густой свиной бульон и тонкая лапша.</p>
+                        <p class="product-card__price">Цена: 500 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-card__image" src="images/ramen-iekei.jpg" alt="Рамен иэкэй с нори, яйцом и чашу" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Рамен иэкэй</h4>
+                        <p class="product-card__description">Нори, яйцо и свинина чашу.</p>
+                        <p class="product-card__price">Цена: 550 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-card__image" src="images/dessert-matcha.jpg" alt="Десерт с матчей в раменной" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Десерт с матчей</h4>
+                        <p class="product-card__description">Зелёный десерт после рамена.</p>
+                        <p class="product-card__price">Цена: 450 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-group" id="cars" aria-labelledby="cars-title">
+                <h3 class="catalog-group__title" id="cars-title">Машинки</h3>
+
+                <div class="products-grid">
+                    <article class="product-card product-card--discount">
+                        <span class="badge badge--sale product-card__badge">−10%</span>
+                        <img class="product-card__image" src="images/porsche-911.jpg" alt="Porsche 911 в ливрее Gulf и Heuer" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Porsche 911 Gulf</h4>
+                        <p class="product-card__description">Классика в гоночной ливрее. Скидка 10%.</p>
+                        <p class="product-card__price">Цена: 1080 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="catalog-group" id="places" aria-labelledby="places-title">
+                <h3 class="catalog-group__title" id="places-title">Достопримечательности</h3>
+
+                <div class="products-grid">
+                    <article class="product-card">
+                        <span class="badge badge--hit product-card__badge">Хит</span>
+                        <img class="product-card__image" src="images/fuji-coast.jpg" alt="Вид на гору Фудзи с побережья" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Фудзи с побережья</h4>
+                        <p class="product-card__description">Фудзияма над облаками и океаном.</p>
+                        <p class="product-card__price">Цена: 1000 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-card__image" src="images/kaws-doha.jpg" alt="Деревянная статуя KAWS в аэропорту Дохи" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Статуя KAWS</h4>
+                        <p class="product-card__description">Огромная фигура в аэропорту Дохи.</p>
+                        <p class="product-card__price">Цена: 800 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-card__image" src="images/garden-doha.jpg" alt="Тропический сад под куполом аэропорта Дохи" width="800" height="1066" loading="lazy">
+                        <h4 class="product-card__title">Сад под куполом</h4>
+                        <p class="product-card__description">Джунгли прямо в терминале аэропорта.</p>
+                        <p class="product-card__price">Цена: 850 руб.</p>
+                        <div class="product-card__actions">
+                            <a class="button button--primary" href="product.html">Подробнее</a>
+                            <a class="button button--secondary" href="order.html">В заявку</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </section>
     </section>
 </main>

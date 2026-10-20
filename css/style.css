@@ -57,6 +57,11 @@ html {
 /*
   Убираем стандартный внешний отступ браузера у body
   и берём цвета страницы из переменных.
+
+  Фон — фото Фудзиямы (Wikimedia Commons, CC0).
+  Поверх фото полупрозрачный белый градиент, чтобы текст оставался читаемым.
+  background-attachment: fixed — фото стоит на месте, страница прокручивается поверх.
+  background-color — запасной цвет, пока фото не загрузилось.
 */
 body {
     margin: 0;
@@ -64,6 +69,12 @@ body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-bg);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
+        url("../images/fuji-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* ===============================
@@ -462,10 +473,17 @@ a:focus-visible {
     z-index: 1;
 }
 
+/*
+  Фото вертикальные, поэтому в карточке показываем их в рамке 4:3:
+  object-fit: cover заполняет рамку целиком и обрезает лишнее по краям,
+  без искажения пропорций. Так все карточки одной высоты.
+*/
 .product-card__image {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: var(--radius-sm);
 }
 
@@ -546,6 +564,19 @@ a:focus-visible {
 }
 
 /*
+  Блок catalog-group: группа товаров одной категории в каталоге.
+*/
+.catalog-group {
+    margin-bottom: var(--space-xl);
+}
+
+.catalog-group__title {
+    margin: 0 0 var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/*
   Блок filters-form: группы полей друг под другом с отступом gap.
 */
 .filters-form {
@@ -568,6 +599,17 @@ a:focus-visible {
 .filters-form__label {
     display: block;
     margin-bottom: var(--space-sm);
+}
+
+/*
+  Чекбокс и подпись в одну строку. Длинное «Достопримечательности»
+  иначе не помещалось и уезжало под чекбокс.
+*/
+.filters-form__option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 14px;
 }
 
 .filters-form__input {
@@ -601,10 +643,16 @@ a:focus-visible {
     left: var(--space-md);
 }
 
+/*
+  На странице товара фото вертикальное и крупное.
+  max-height не даёт ему растянуться выше экрана.
+*/
 .product__image {
     display: block;
     width: 100%;
     height: auto;
+    max-height: 80vh;
+    object-fit: cover;
     border-radius: var(--radius-lg);
 }
 
