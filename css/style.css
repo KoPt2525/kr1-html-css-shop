@@ -87,14 +87,6 @@ a:focus-visible {
 }
 
 /*
-  Подсветка элемента, к которому выполнен переход по якорю.
-*/
-:target {
-    outline: 2px dashed var(--color-primary);
-    outline-offset: 4px;
-}
-
-/*
   Блок button: базовая кнопка без цвета.
   Внешний вид задают модификаторы button--primary и button--secondary.
 */
