@@ -1,5 +1,5 @@
-// Скрипт подключён на двух страницах:
-// index.html — форма в модальном окне,
+// Скрипт подключён на трёх страницах:
+// index.html и catalog.html — форма в модальном окне,
 // order.html — та же форма прямо на странице, без модального окна.
 // Поэтому перед работой с модальным окном проверяем, что оно есть.
 
@@ -15,6 +15,9 @@ const closeDialogButton = document.getElementById('close-order-dialog');
 // Получаем скрытое поле, в которое будет записан выбранный товар.
 const selectedProductInput = document.getElementById('selected-product');
 
+// Строка в модальном окне, где пользователь видит, что он заказывает.
+const dialogProductText = document.getElementById('order-dialog-product');
+
 if (orderDialog) {
     // Перебираем все кнопки «Заказать».
     orderButtons.forEach((button) => {
@@ -24,6 +27,9 @@ if (orderDialog) {
 
             // Записываем название товара в скрытое поле формы.
             selectedProductInput.value = productName;
+
+            // Показываем название товара в окне.
+            dialogProductText.textContent = `Вы заказываете: ${productName}`;
 
             // Открываем модальное окно.
             orderDialog.showModal();
@@ -81,6 +87,9 @@ if (orderForm) {
         if (orderDialog) {
             orderDialog.close();
         }
+
+        // Прокручиваем страницу к сообщению, чтобы пользователь его увидел.
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
     // При очистке формы кнопкой «Очистить» убираем подсветку ошибок.

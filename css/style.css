@@ -778,6 +778,16 @@ a:focus-visible {
 }
 
 /*
+  Название выбранного товара под заголовком окна.
+  Текст подставляет js/main.js при нажатии «Заказать».
+*/
+.order-dialog__product {
+    margin: 0 0 var(--space-md);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/*
   Блок order-form: форма заявки.
   Модификатор --page — форма прямо на странице order.html, а не в модальном окне.
 */
