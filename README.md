@@ -30,7 +30,7 @@ kr1-html-css-shop/
 ├── catalog.html      — каталог: фильтры и сетка из 6 товаров
 ├── product.html      — карточка товара: изображение, описание, таблица характеристик, цена
 ├── order.html        — оформление заявки: форма с валидацией
-├── contacts.html     — контакты, ссылка на форму заявки, частые вопросы
+├── contacts.html     — контакты, ссылка на форму заявки
 ├── css/
 │   └── style.css     — все стили проекта
 ├── js/
@@ -56,7 +56,7 @@ kr1-html-css-shop/
 | `catalog.html` | статический блок фильтров (категории, цена) и сетка карточек товаров |
 | `product.html` | изображение, описание, цена, наличие, таблица характеристик, блок «Доставка и оплата» |
 | `order.html` | форма заявки: имя, e-mail, телефон, товар, количество, дата, комментарий, согласие |
-| `contacts.html` | контакты, ссылка на форму заявки, блок частых вопросов |
+| `contacts.html` | контакты, ссылка на форму заявки |
 
 На всех страницах: уникальные `title` и `meta description`, общее меню с выделением текущей страницы, хлебные крошки на внутренних страницах, подключение `css/style.css`, один `main`.
 
@@ -86,7 +86,6 @@ kr1-html-css-shop/
 - **Отдельный блок `badge`** с модификаторами `--hit`, `--new`, `--sale`; используется и в карточках, и на странице товара (БЭМ-микс `badge product-card__badge`).
 - **Страница товара:** раскладка «изображение + информация» на Grid, блок наличия, расширенная таблица с подсветкой строки при наведении.
 - **Страница заявки:** выбор товара и количества, отметка обязательных полей звёздочкой, кнопка «Очистить», которая сбрасывает и подсветку ошибок.
-- **Блок частых вопросов** на странице контактов (`details`/`summary`) со стилями открытого состояния.
 - **Кнопки двух видов:** `button--primary` и `button--secondary` (контурная).
 - **Доступность:** `aria-current="page"` у текущего пункта меню и в хлебных крошках, `aria-describedby` связывает поле телефона с подсказкой формата, `role="status"` у сообщения об успешной отправке, видимый фокус у всех интерактивных элементов, `scope` у ячеек-заголовков таблицы, `alt` у изображений.
 - **JavaScript работает на двух страницах:** скрипт проверяет, есть ли на странице модальное окно, и не падает на `order.html`, где форма размещена без него.
@@ -99,12 +98,12 @@ kr1-html-css-shop/
 1. Переменные проекта (`:root`) — цвета, отступы, скругления, ширина контейнера.
 2. Базовые стили — `html`, `*`, `body`.
 3. Общие элементы — ссылки, `:target`, `button`, `badge`, `to-top`.
-4. Компоненты страниц — шапка, меню, хлебные крошки, hero, карточки, каталог, страница товара, таблица, FAQ, подвал.
+4. Компоненты страниц — шапка, меню, хлебные крошки, hero, карточки, каталог, страница товара, таблица, подвал.
 5. Форма и модальное окно.
 
 ## БЭМ-блоки
 
-`site-header`, `site-nav`, `site-main`, `site-footer`, `breadcrumbs`, `hero`, `section`, `advantages-list`, `products-grid`, `product-card`, `badge`, `catalog-layout`, `catalog-filters`, `catalog-products`, `filters-form`, `product`, `product-table`, `contacts-list`, `faq`, `aside-info`, `order-dialog`, `order-form`, `success-message`, `button`, `to-top`.
+`site-header`, `site-nav`, `site-main`, `site-footer`, `breadcrumbs`, `hero`, `section`, `advantages-list`, `products-grid`, `product-card`, `badge`, `catalog-layout`, `catalog-filters`, `catalog-products`, `filters-form`, `product`, `product-table`, `contacts-list`, `aside-info`, `order-dialog`, `order-form`, `success-message`, `button`, `to-top`.
 
 Примеры модификаторов: `site-nav__link--active`, `product-card--featured`, `product-card--discount`, `product-card--unavailable`, `badge--sale`, `button--primary`, `button--secondary`, `order-form--page`, `product-table__cell--name`.
 

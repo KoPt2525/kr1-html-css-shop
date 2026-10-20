@@ -31,6 +31,9 @@
 
     /* Размеры */
     --container-width: 1100px;
+
+    /* Шрифты. Пиксельный — для шапки, подключается с Google Fonts */
+    --font-pixel: "Press Start 2P", monospace;
 }
 
 /* ===============================
@@ -200,8 +203,13 @@ a:focus-visible {
 
 /*
   Блок site-header: шапка сайта.
+  Пиксельный шрифт в стиле Minecraft. Он крупный и широкий,
+  поэтому размер текста в шапке уменьшен.
 */
 .site-header {
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    line-height: 1.6;
     background-color: var(--color-surface);
 }
 
@@ -220,8 +228,12 @@ a:focus-visible {
     padding: var(--space-lg);
 }
 
+/*
+  font-weight не задаём: у пиксельного шрифта нет жирного начертания,
+  браузер рисовал бы его искусственно и размыто.
+*/
 .site-header__logo {
-    font-weight: 700;
+    font-size: 16px;
     color: var(--color-text);
     text-decoration: none;
 }
@@ -676,43 +688,6 @@ a:focus-visible {
 
 .contacts-list__item {
     margin-bottom: var(--space-sm);
-}
-
-/*
-  Блок faq: частые вопросы на элементах details/summary.
-*/
-.faq {
-    display: grid;
-    gap: var(--space-sm);
-}
-
-.faq__item {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-}
-
-.faq__item[open] {
-    border-color: var(--color-primary);
-}
-
-.faq__question {
-    padding: var(--space-md);
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.faq__question:hover {
-    color: var(--color-primary);
-}
-
-.faq__question:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 3px;
-}
-
-.faq__answer {
-    margin: 0;
-    padding: 0 var(--space-md) var(--space-md);
 }
 
 /*
