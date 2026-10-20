@@ -213,7 +213,16 @@ a:focus-visible {
     background-color: var(--color-surface);
 }
 
+/*
+  Логотип слева, меню справа, в одну строку и по центру по вертикали.
+  flex-wrap переносит меню под логотип, если строка не помещается.
+*/
 .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
     max-width: var(--container-width);
     margin: 0 auto;
     padding: var(--space-lg);
@@ -240,7 +249,7 @@ a:focus-visible {
     align-items: center;
     gap: var(--space-md);
     padding: 0;
-    margin: var(--space-md) 0 0;
+    margin: 0;
     list-style: none;
 }
 
