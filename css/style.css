@@ -1,9 +1,4 @@
-/* ===============================
-   1. Переменные проекта
-   =============================== */
-
 :root {
-    /* Основные цвета проекта */
     --color-bg: #ffffff;
     --color-text: #222222;
     --color-muted: #666666;
@@ -17,52 +12,30 @@
     --color-success-bg: #eefaf0;
     --color-white: #ffffff;
 
-    /* Отступы */
     --space-xs: 4px;
     --space-sm: 8px;
     --space-md: 16px;
     --space-lg: 24px;
     --space-xl: 32px;
 
-    /* Скругления */
     --radius-sm: 6px;
     --radius-md: 8px;
     --radius-lg: 12px;
 
-    /* Размеры */
     --container-width: 1100px;
 
-    /* Шрифты. Пиксельный — для шапки, подключается с Google Fonts */
     --font-pixel: "Press Start 2P", monospace;
 }
 
-/* ===============================
-   2. Базовые стили
-   =============================== */
-
-/*
-  Плавная прокрутка при переходе по якорным ссылкам.
-*/
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
-/*
-  border-box: width включает content, padding и border.
-*/
 * {
     box-sizing: border-box;
 }
 
-/*
-  Убираем стандартный внешний отступ браузера у body
-  и берём цвета страницы из переменных.
-
-  Фон — фото Фудзиямы (Wikimedia Commons, CC0).
-  Поверх фото полупрозрачный белый градиент, чтобы текст оставался читаемым.
-  background-attachment: fixed — фото стоит на месте, страница прокручивается поверх.
-  background-color — запасной цвет, пока фото не загрузилось.
-*/
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -77,13 +50,6 @@ body {
     background-attachment: fixed;
 }
 
-/* ===============================
-   3. Общие элементы интерфейса
-   =============================== */
-
-/*
-  Базовый цвет ссылок и его изменение при наведении.
-*/
 a {
     color: var(--color-primary);
 }
@@ -92,18 +58,11 @@ a:hover {
     color: var(--color-primary-dark);
 }
 
-/*
-  Видимый фокус при навигации клавишей Tab.
-*/
 a:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
 }
 
-/*
-  Блок button: базовая кнопка без цвета.
-  Внешний вид задают модификаторы button--primary и button--secondary.
-*/
 .button {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
@@ -119,10 +78,6 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-/*
-  Основная кнопка. color в :hover нужен, потому что общее правило a:hover
-  иначе перекрасило бы текст кнопки-ссылки.
-*/
 .button--primary {
     color: var(--color-white);
     background-color: var(--color-primary);
@@ -133,9 +88,6 @@ a:focus-visible {
     background-color: var(--color-primary-dark);
 }
 
-/*
-  Второстепенная кнопка: контурная.
-*/
 .button--secondary {
     color: var(--color-primary);
     background-color: transparent;
@@ -147,9 +99,6 @@ a:focus-visible {
     background-color: var(--color-primary);
 }
 
-/*
-  Отключённая кнопка: приглушённая и без реакции на наведение.
-*/
 .button:disabled,
 .button--disabled {
     opacity: 0.6;
@@ -160,10 +109,6 @@ a:focus-visible {
     background-color: var(--color-primary);
 }
 
-/*
-  Блок badge: небольшая метка «Хит», «Новинка», «Скидка».
-  Цвет задают модификаторы.
-*/
 .badge {
     display: inline-block;
     padding: 2px var(--space-sm);
@@ -186,10 +131,6 @@ a:focus-visible {
     background-color: var(--color-danger);
 }
 
-/*
-  Блок to-top: кнопка «Наверх», закреплена в углу окна.
-  z-index поднимает её над содержимым страницы.
-*/
 .to-top {
     position: fixed;
     right: var(--space-lg);
@@ -208,26 +149,17 @@ a:focus-visible {
     background-color: var(--color-primary-dark);
 }
 
-/* ===============================
-   4. Компоненты страницы
-   =============================== */
-
-/*
-  Блок site-header: шапка сайта.
-  Пиксельный шрифт в стиле Minecraft. Он крупный и широкий,
-  поэтому размер текста в шапке уменьшен.
-*/
 .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     font-family: var(--font-pixel);
     font-size: 12px;
     line-height: 1.6;
     background-color: var(--color-surface);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/*
-  Логотип слева, меню справа, в одну строку и по центру по вертикали.
-  flex-wrap переносит меню под логотип, если строка не помещается.
-*/
 .site-header__inner {
     display: flex;
     flex-wrap: wrap;
@@ -239,10 +171,6 @@ a:focus-visible {
     padding: var(--space-lg);
 }
 
-/*
-  font-weight не задаём: у пиксельного шрифта нет жирного начертания,
-  браузер рисовал бы его искусственно и размыто.
-*/
 .site-header__logo {
     font-size: 16px;
     color: var(--color-text);
@@ -253,10 +181,6 @@ a:focus-visible {
     color: var(--color-primary);
 }
 
-/*
-  Блок site-nav: горизонтальное меню на Flexbox.
-  flex-wrap переносит пункты, если они не помещаются в строку.
-*/
 .site-nav__list {
     display: flex;
     flex-wrap: wrap;
@@ -268,10 +192,6 @@ a:focus-visible {
     list-style: none;
 }
 
-/*
-  inline-block позволяет задать ссылке внутренние отступы
-  и увеличить кликабельную область.
-*/
 .site-nav__link {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
@@ -290,25 +210,15 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-/*
-  Модификатор: пункт меню текущей страницы.
-*/
 .site-nav__link--active {
     color: var(--color-white);
     background-color: var(--color-primary);
 }
 
-/*
-  Блок site-main: основная область страницы.
-*/
 .site-main {
     padding: var(--space-lg);
 }
 
-/*
-  Блок breadcrumbs: хлебные крошки на внутренних страницах.
-  Перед текущей страницей выводится разделитель.
-*/
 .breadcrumbs {
     max-width: var(--container-width);
     margin: 0 auto var(--space-md);
@@ -329,9 +239,6 @@ a:focus-visible {
     color: var(--color-muted);
 }
 
-/*
-  Блок hero: первый крупный блок главной страницы.
-*/
 .hero {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -350,9 +257,6 @@ a:focus-visible {
     gap: var(--space-md);
 }
 
-/*
-  Блок advantages-list: преимущества в три колонки.
-*/
 .advantages-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -379,9 +283,6 @@ a:focus-visible {
     color: var(--color-muted);
 }
 
-/*
-  Блок section: универсальный раздел страницы.
-*/
 .section {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -391,20 +292,12 @@ a:focus-visible {
     margin-top: 0;
 }
 
-/*
-  Блок products-grid: сетка карточек, три равные колонки.
-  Отвечает только за расположение, вид карточки задаёт product-card.
-*/
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
 }
 
-/*
-  Блок product-card: карточка товара, flex-колонка.
-  position: relative — точка отсчёта для бейджа product-card__badge.
-*/
 .product-card {
     position: relative;
     display: flex;
@@ -420,9 +313,6 @@ a:focus-visible {
     border-color: var(--color-primary);
 }
 
-/*
-  Модификаторы карточки: выделенный товар и товар со скидкой.
-*/
 .product-card--featured {
     border-color: var(--color-primary);
     background-color: var(--color-surface-accent);
@@ -451,9 +341,6 @@ a:focus-visible {
     color: var(--color-danger);
 }
 
-/*
-  Модификатор: товара нет в наличии.
-*/
 .product-card--unavailable {
     opacity: 0.7;
 }
@@ -462,10 +349,6 @@ a:focus-visible {
     border-color: var(--color-border);
 }
 
-/*
-  Бейдж в правом верхнем углу карточки.
-  z-index поднимает его над изображением.
-*/
 .product-card__badge {
     position: absolute;
     top: var(--space-sm);
@@ -473,11 +356,6 @@ a:focus-visible {
     z-index: 1;
 }
 
-/*
-  Фото вертикальные, поэтому в карточке показываем их в рамке 4:3:
-  object-fit: cover заполняет рамку целиком и обрезает лишнее по краям,
-  без искажения пропорций. Так все карточки одной высоты.
-*/
 .product-card__image {
     display: block;
     width: 100%;
@@ -494,10 +372,6 @@ a:focus-visible {
     text-transform: uppercase;
 }
 
-/*
-  margin-top: auto прижимает кнопки к низу карточки,
-  поэтому они стоят на одной высоте во всех карточках ряда.
-*/
 .product-card__actions {
     display: flex;
     flex-wrap: wrap;
@@ -505,9 +379,6 @@ a:focus-visible {
     margin-top: auto;
 }
 
-/*
-  Блок aside-info: дополнительный информационный блок.
-*/
 .aside-info {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -520,9 +391,6 @@ a:focus-visible {
     margin-top: 0;
 }
 
-/*
-  Блок catalog-layout: фильтры слева, товары справа.
-*/
 .catalog-layout {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -532,14 +400,9 @@ a:focus-visible {
     gap: var(--space-lg);
 }
 
-/*
-  Блок catalog-filters: боковая панель фильтров.
-  sticky оставляет фильтры на экране при прокрутке списка товаров,
-  align-self: start не даёт панели растянуться на всю высоту сетки.
-*/
 .catalog-filters {
     position: sticky;
-    top: var(--space-md);
+    top: 100px;
     align-self: start;
     grid-area: filters;
     padding: var(--space-md);
@@ -552,9 +415,6 @@ a:focus-visible {
     margin-top: 0;
 }
 
-/*
-  Блок catalog-products: область со списком товаров.
-*/
 .catalog-products {
     grid-area: products;
 }
@@ -563,9 +423,6 @@ a:focus-visible {
     margin-top: 0;
 }
 
-/*
-  Блок catalog-group: группа товаров одной категории в каталоге.
-*/
 .catalog-group {
     margin-bottom: var(--space-xl);
 }
@@ -576,9 +433,6 @@ a:focus-visible {
     border-bottom: 2px solid var(--color-primary);
 }
 
-/*
-  Блок filters-form: группы полей друг под другом с отступом gap.
-*/
 .filters-form {
     display: grid;
     gap: var(--space-md);
@@ -601,10 +455,6 @@ a:focus-visible {
     margin-bottom: var(--space-sm);
 }
 
-/*
-  Чекбокс и подпись в одну строку. Длинное «Достопримечательности»
-  иначе не помещалось и уезжало под чекбокс.
-*/
 .filters-form__option {
     display: flex;
     align-items: center;
@@ -621,9 +471,6 @@ a:focus-visible {
     font: inherit;
 }
 
-/*
-  Блок product: страница товара — изображение слева, информация справа.
-*/
 .product {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -643,10 +490,6 @@ a:focus-visible {
     left: var(--space-md);
 }
 
-/*
-  На странице товара фото вертикальное и крупное.
-  max-height не даёт ему растянуться выше экрана.
-*/
 .product__image {
     display: block;
     width: 100%;
@@ -690,9 +533,6 @@ a:focus-visible {
     gap: var(--space-md);
 }
 
-/*
-  Блок product-table: таблица характеристик товара.
-*/
 .product-table {
     width: 100%;
     border-collapse: collapse;
@@ -727,9 +567,6 @@ a:focus-visible {
     background-color: var(--color-surface-accent);
 }
 
-/*
-  Блок contacts-list: список контактов.
-*/
 .contacts-list {
     padding-left: var(--space-lg);
 }
@@ -738,9 +575,6 @@ a:focus-visible {
     margin-bottom: var(--space-sm);
 }
 
-/*
-  Блок site-footer: подвал сайта.
-*/
 .site-footer {
     padding: var(--space-lg);
     background-color: var(--color-surface);
@@ -751,14 +585,6 @@ a:focus-visible {
     margin: 0 auto var(--space-sm);
 }
 
-/* ===============================
-   5. Форма и модальное окно
-   =============================== */
-
-/*
-  Блок order-dialog: модальное окно.
-  Форма внутри — отдельный блок order-form.
-*/
 .order-dialog {
     width: min(100% - 32px, 560px);
     padding: var(--space-lg);
@@ -766,9 +592,6 @@ a:focus-visible {
     border-radius: var(--radius-lg);
 }
 
-/*
-  Затемнение фона за модальным окном.
-*/
 .order-dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -777,20 +600,12 @@ a:focus-visible {
     margin-top: 0;
 }
 
-/*
-  Название выбранного товара под заголовком окна.
-  Текст подставляет js/main.js при нажатии «Заказать».
-*/
 .order-dialog__product {
     margin: 0 0 var(--space-md);
     font-weight: 700;
     color: var(--color-primary);
 }
 
-/*
-  Блок order-form: форма заявки.
-  Модификатор --page — форма прямо на странице order.html, а не в модальном окне.
-*/
 .order-form--page {
     max-width: 640px;
     padding: var(--space-lg);
@@ -836,28 +651,18 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-/*
-  Подсказка под полем.
-*/
 .order-form__hint {
     display: block;
     margin-top: var(--space-xs);
     color: var(--color-muted);
 }
 
-/*
-  Подсветка ошибочных полей.
-  Атрибут aria-invalid добавляется в js/main.js.
-*/
 .order-form__input[aria-invalid="true"],
 .order-form__select[aria-invalid="true"],
 .order-form__textarea[aria-invalid="true"] {
     border-color: var(--color-danger);
 }
 
-/*
-  У чекбокса нет рамки, поэтому ошибку показываем обводкой.
-*/
 .order-form__checkbox[aria-invalid="true"] {
     outline: 2px solid var(--color-danger);
 }
@@ -868,9 +673,6 @@ a:focus-visible {
     margin-top: var(--space-lg);
 }
 
-/*
-  Блок success-message: сообщение об успешной отправке.
-*/
 .success-message {
     max-width: var(--container-width);
     margin: var(--space-lg) auto;
